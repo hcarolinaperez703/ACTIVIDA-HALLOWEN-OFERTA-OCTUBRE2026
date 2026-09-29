@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Duelo de Ofertas de Halloween – Octubre</title>
+    <meta name="description" content="Capacitación comercial Claro Colombia: Duelo de Ofertas de Halloween – Octubre con Puertas Misteriosas y 5 sesiones simultáneas." />
+    <meta property="og:title" content="Duelo de Ofertas de Halloween – Octubre" />
+    <meta property="og:description" content="Capacitación comercial Claro Colombia: Duelo de Ofertas de Halloween – Octubre con Puertas Misteriosas y 5 sesiones simultáneas." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#e2001a" />
+    <link rel="icon" type="image/svg+xml" href="/icon-512.svg" />
+    <link rel="apple-touch-icon" href="/icon-512.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch((err) => {
+            console.log('SW registration note:', err);
+          });
+        });
+      }
+    </script>
+  </head>
+  <body class="bg-[#150a24] text-[#f3ead3] antialiased selection:bg-[#ff7a29]/30 selection:text-white">
+    <audio id="sound-click" preload="auto"></audio>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

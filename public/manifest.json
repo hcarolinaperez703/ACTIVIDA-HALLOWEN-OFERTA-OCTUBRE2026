@@ -1,0 +1,26 @@
+{
+  "name": "Duelo de Ofertas de Halloween – Octubre",
+  "short_name": "Duelo Halloween",
+  "description": "Duelo de Ofertas de Halloween – Octubre: Actividad interactiva de capacitación comercial Claro Colombia con Puertas Misteriosas y sesiones simultáneas.",
+  "start_url": "./?pwa=true",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#150a24",
+  "theme_color": "#e2001a",
+  "orientation": "any",
+  "categories": ["business", "education", "productivity"],
+  "icons": [
+    {
+      "src": "icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

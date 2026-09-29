@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <defs>
+    <radialGradient id="bgGlow192" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2a0845" />
+      <stop offset="100%" stop-color="#150a24" />
+    </radialGradient>
+    <linearGradient id="claroRed192" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff5a6a" />
+      <stop offset="100%" stop-color="#e2001a" />
+    </linearGradient>
+    <filter id="neonGlow192" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <rect width="192" height="192" rx="42" fill="url(#bgGlow192)" />
+  <rect width="186" height="186" x="3" y="3" rx="40" fill="none" stroke="url(#claroRed192)" stroke-width="3" opacity="0.7" />
+
+  <g filter="url(#neonGlow192)">
+    <path d="M 96,30 C 65,30 50,50 50,85 C 50,112 58,128 50,144 C 46,152 54,156 62,150 C 70,144 78,150 86,144 C 94,138 98,138 106,144 C 114,150 122,144 130,150 C 138,156 146,152 142,144 C 134,128 142,112 142,85 C 142,50 127,30 96,30 Z" fill="url(#claroRed192)" />
+    <ellipse cx="80" cy="80" rx="7" ry="10" fill="#150a24" />
+    <ellipse cx="112" cy="80" rx="7" ry="10" fill="#150a24" />
+    <circle cx="78" cy="77" r="2.5" fill="#fff" />
+    <circle cx="110" cy="77" r="2.5" fill="#fff" />
+    <path d="M 85,102 Q 96,114 107,102" stroke="#150a24" stroke-width="3.5" stroke-linecap="round" fill="none" />
+  </g>
+
+  <text x="96" y="176" font-family="'Cinzel', serif" font-weight="900" font-size="11" fill="#f3ead3" letter-spacing="1.5" text-anchor="middle">CLARO DUELOS</text>
+</svg>

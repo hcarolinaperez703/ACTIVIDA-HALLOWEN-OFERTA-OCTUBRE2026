@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soporte y Mesas - Duelo de Ofertas de Halloween</title>
+  <link rel="manifest" href="../config/manifest.json">
+  <meta name="theme-color" content="#e2001a">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Work+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand-group">
+        <span class="brand-logo">🎃</span>
+        <div>
+          <span class="brand-sub">Claro Colombia • Capacitación Comercial</span>
+          <h1 class="brand-title font-cinzel">DUELO DE OFERTAS DE HALLOWEEN</h1>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="../index.html" class="nav-link font-cinzel">Actividad (Duelo)</a>
+        <a href="inicio.html" class="nav-link font-cinzel">Inicio</a>
+        <a href="servicios.html" class="nav-link font-cinzel">Ofertas Claro</a>
+        <a href="contacto.html" class="nav-link active font-cinzel">Soporte Mesas</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content" style="max-width: 800px;">
+    <div class="info-card">
+      <span class="badge-tag">Mesa de Ayuda Comercial</span>
+      <h2 class="font-cinzel page-heading">Contacto y Coordinación de Mesas</h2>
+      <p class="lead-text">
+        Utiliza este canal si requieres restablecer las sesiones PWA, solicitar actualización de ofertas de competidores o registrar incidencias en la capacitación:
+      </p>
+
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('Solicitud registrada con éxito para la mesa seleccionada.');">
+        <div class="form-group">
+          <label>Mesa de Entrenamiento</label>
+          <select class="form-input">
+            <option>Mesa 01 - Alfa</option>
+            <option>Mesa 02 - Beta</option>
+            <option>Mesa 03 - Gamma</option>
+            <option>Mesa 04 - Delta</option>
+            <option>Mesa 05 - Épsilon</option>
+            <option>Coordinador General</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Nombre del Asesor / Capacitador</label>
+          <input type="text" class="form-input" placeholder="Ej. Carlos Rodríguez" required>
+        </div>
+
+        <div class="form-group">
+          <label>Tipo de Requerimiento</label>
+          <select class="form-input">
+            <option>Reportar Nueva Oferta Competidora</option>
+            <option>Ajuste de Argumentario de Cierre</option>
+            <option>Duda Técnica sobre PWA Multi-Sesión</option>
+            <option>Otro</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Detalle de la Observación</label>
+          <textarea class="form-input" rows="4" placeholder="Describe la objeción o comentario sobre el duelo..." required></textarea>
+        </div>
+
+        <button type="submit" class="pwa-launch-btn font-cinzel" style="width: 100%; padding: 12px;">
+          Enviar Reporte a Coordinación
+        </button>
+      </form>
+    </div>
+  </main>
+
+  <footer class="app-footer">
+    <p>Duelo de Ofertas de Halloween • Claro Capacitación Comercial</p>
+  </footer>
+</body>
+</html>

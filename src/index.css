@@ -1,0 +1,230 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-main: #150a24;
+    --bg-secondary: #1f1033;
+    --accent-pumpkin: #ff7a29;
+    --accent-coffin-moss: #5c8a6b;
+    --accent-coffin-dark: #3c5943;
+    --accent-claro: #e2001a;
+    --accent-claro-glow: #ff5a6a;
+    --text-parchment: #f3ead3;
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-parchment);
+    font-family: 'Work Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, .font-cinzel {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.03em;
+  }
+}
+
+/* Custom glowing effects */
+.glow-pumpkin {
+  box-shadow: 0 0 25px rgba(255, 122, 41, 0.35), inset 0 0 15px rgba(255, 122, 41, 0.15);
+}
+
+.glow-coffin {
+  box-shadow: 0 0 25px rgba(92, 138, 107, 0.35), inset 0 0 15px rgba(92, 138, 107, 0.15);
+}
+
+.glow-claro {
+  box-shadow: 0 0 35px rgba(226, 0, 26, 0.45), 0 0 12px rgba(255, 90, 106, 0.6), inset 0 0 20px rgba(226, 0, 26, 0.2);
+}
+
+.glow-text-pumpkin {
+  text-shadow: 0 0 12px rgba(255, 122, 41, 0.65);
+}
+
+.glow-text-claro {
+  text-shadow: 0 0 15px rgba(255, 90, 106, 0.75);
+}
+
+.glow-text-coffin {
+  text-shadow: 0 0 12px rgba(92, 138, 107, 0.65);
+}
+
+/* Hexagon coffin clip-path */
+.clip-coffin {
+  clip-path: polygon(28% 0%, 72% 0%, 100% 28%, 85% 100%, 15% 100%, 0% 28%);
+}
+
+/* Ghost scalloped clip-path */
+.clip-ghost {
+  clip-path: polygon(
+    0% 35%, 50% 0%, 100% 35%,
+    100% 90%,
+    88% 100%, 75% 90%, 62% 100%, 50% 90%, 38% 100%, 25% 90%, 12% 100%, 0% 90%
+  );
+}
+
+/* Pumpkin styled clip-path */
+.clip-pumpkin {
+  clip-path: polygon(
+    20% 0%, 50% 4%, 80% 0%,
+    98% 22%, 100% 50%, 98% 78%,
+    82% 100%, 50% 96%, 18% 100%,
+    2% 78%, 0% 50%, 2% 22%
+  );
+}
+
+/* ========================================================================== */
+/* CLASE OFICIAL: .tarjeta-oferta (Efecto 3D y Hover Dinámico Estilo Web Page) */
+/* ========================================================================== */
+/* Perspective wrapper for realistic 3D spatial depth */
+.perspective-container {
+  perspective: 1400px;
+  transform-style: preserve-3d;
+}
+
+/* Tarjeta Oferta con estilo ventana de página web / dashboard en 3D */
+.tarjeta-oferta {
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.4s ease;
+  transform-style: preserve-3d;
+  will-change: transform, box-shadow;
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+/* Tarjeta estilo Web Page: Barra superior de navegador / ventana */
+.browser-chrome {
+  background: linear-gradient(180deg, rgba(30, 20, 45, 0.95) 0%, rgba(20, 10, 32, 0.9) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+}
+
+.browser-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+.browser-url-bar {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 2px 10px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  color: rgba(243, 234, 211, 0.75);
+}
+
+/* Capa interior con elevación espacial en Z (Parallax Depth) */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.layer-3d-front {
+  transform: translateZ(28px);
+}
+
+.layer-3d-badge {
+  transform: translateZ(42px);
+}
+
+/* Efecto de movimiento y brillo al pasar el cursor (Hover 3D Natural) */
+.tarjeta-oferta:hover {
+  transform: translateY(-16px) rotateX(4deg) rotateY(6deg) scale(1.025);
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.85);
+}
+
+/* Variante Calabaza (Competidor 1 y 3) */
+.tarjeta-oferta.tarjeta-calabaza:hover {
+  transform: translateY(-16px) rotateX(4deg) rotateY(6deg) scale(1.025);
+  box-shadow: 0 28px 55px -10px rgba(0, 0, 0, 0.9), 0 0 35px rgba(255, 122, 41, 0.45);
+  border-color: rgba(255, 122, 41, 0.6) !important;
+}
+
+/* Variante Ataúd (Competidor 2 - Inclinación hacia la izquierda y halo verde musgo) */
+.tarjeta-oferta.tarjeta-ataud:hover {
+  transform: translateY(-16px) rotateX(4deg) rotateY(-6deg) scale(1.025);
+  box-shadow: 0 28px 55px -10px rgba(0, 0, 0, 0.9), 0 0 35px rgba(92, 138, 107, 0.5);
+  border-color: rgba(92, 138, 107, 0.6) !important;
+}
+
+/* Variante Fantasma Claro (Cierre de Venta - Elevación premium y resplandor rojo Claro) */
+.tarjeta-oferta.tarjeta-claro:hover {
+  transform: translateY(-18px) rotateX(3deg) rotateY(-6deg) scale(1.03);
+  box-shadow: 0 32px 65px -10px rgba(0, 0, 0, 0.9), 0 0 45px rgba(226, 0, 26, 0.6), 0 0 20px rgba(255, 90, 106, 0.5);
+  border-color: rgba(226, 0, 26, 0.7) !important;
+}
+
+/* ========================================================================== */
+/* BOTÓN ANIMADO CON MOVIMIENTO: Contraoferta Fantasma Claro                  */
+/* ========================================================================== */
+@keyframes ghost-float-motion {
+  0% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+    box-shadow: 0 0 20px rgba(226, 0, 26, 0.5), 0 0 40px rgba(255, 90, 106, 0.3);
+  }
+  25% {
+    transform: translateY(-5px) rotate(-1.5deg) scale(1.02);
+  }
+  50% {
+    transform: translateY(-9px) rotate(0deg) scale(1.04);
+    box-shadow: 0 0 35px rgba(226, 0, 26, 0.8), 0 0 55px rgba(255, 90, 106, 0.6);
+  }
+  75% {
+    transform: translateY(-4px) rotate(1.5deg) scale(1.02);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+    box-shadow: 0 0 20px rgba(226, 0, 26, 0.5), 0 0 40px rgba(255, 90, 106, 0.3);
+  }
+}
+
+@keyframes ghost-aura-pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+
+.btn-contraoferta-fantasma {
+  animation: ghost-float-motion 3.2s ease-in-out infinite;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform, box-shadow;
+}
+
+.btn-contraoferta-fantasma:hover {
+  animation-duration: 1.6s;
+  transform: scale(1.08) translateY(-4px);
+  box-shadow: 0 0 45px rgba(226, 0, 26, 0.9), 0 0 70px rgba(255, 90, 106, 0.7);
+}
+
+.aura-fantasma {
+  animation: ghost-aura-pulse 2s ease-in-out infinite;
+}
+
+/* ========================================================================== */
+/* 3D FLIP CARD & TAROT PROJECTION UTILITIES                                 */
+/* ========================================================================== */
+.perspective-1000 {
+  perspective: 1400px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg) !important;
+}
+
+
+

@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Duelo de Ofertas de Halloween - Claro Capacitación</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================================================
+       VARIABLES Y PALETA DE COLOR OFICIAL
+       ========================================================================== */
+    :root {
+      --bg-midnight: #150a24;
+      --bg-deep: #1f1033;
+      --pumpkin-orange: #ff7a29;
+      --coffin-moss: #5c8a6b;
+      --coffin-dark: #3c5943;
+      --claro-red: #e2001a;
+      --claro-glow: #ff5a6a;
+      --parchment: #f3ead3;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: radial-gradient(circle at 50% 20%, #1f1033 0%, #150a24 70%);
+      color: var(--parchment);
+      font-family: 'Work Sans', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      padding-bottom: 50px;
+    }
+
+    .font-cinzel {
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.03em;
+    }
+
+    /* CONTENEDOR PRINCIPAL */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 24px;
+    }
+
+    /* BARRA SUPERIOR Y AMBIENTACIÓN */
+    header {
+      background: rgba(21, 10, 36, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 122, 41, 0.25);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 14px 0;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-emblem {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--claro-red), var(--pumpkin-orange));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px rgba(226, 0, 26, 0.45);
+    }
+
+    .badge-sub {
+      display: inline-block;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--claro-glow);
+      background: rgba(226, 0, 26, 0.15);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(226, 0, 26, 0.35);
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+
+    h1.main-title {
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--parchment);
+      text-shadow: 0 0 15px rgba(243, 234, 211, 0.2);
+    }
+
+    /* REPRODUCTOR DE MÚSICA DE HALLOWEEN */
+    .audio-player-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(31, 16, 51, 0.9);
+      padding: 8px 16px;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 122, 41, 0.35);
+      box-shadow: 0 0 15px rgba(255, 122, 41, 0.2);
+    }
+
+    .btn-audio {
+      background: var(--pumpkin-orange);
+      color: #fff;
+      border: none;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(255, 122, 41, 0.5);
+    }
+
+    .btn-audio:hover {
+      transform: scale(1.1);
+      background: #ffa059;
+    }
+
+    .music-waves {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      height: 16px;
+    }
+
+    .wave-bar {
+      width: 3px;
+      height: 100%;
+      background: var(--pumpkin-orange);
+      border-radius: 2px;
+      animation: wave 1.2s ease-in-out infinite alternate;
+    }
+
+    .wave-bar:nth-child(2) { animation-delay: 0.2s; height: 60%; }
+    .wave-bar:nth-child(3) { animation-delay: 0.4s; height: 80%; }
+    .wave-bar:nth-child(4) { animation-delay: 0.1s; height: 40%; }
+
+    @keyframes wave {
+      0% { transform: scaleY(0.3); }
+      100% { transform: scaleY(1); }
+    }
+
+    .music-info {
+      font-size: 11px;
+      color: var(--parchment);
+      opacity: 0.9;
+    }
+
+    /* PANELES DE CONTROL DE LA ACTIVIDAD */
+    .controls-deck {
+      margin-top: 24px;
+      background: rgba(31, 16, 51, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .duel-tabs {
+      display: flex;
+      gap: 8px;
+    }
+
+    .duel-tab {
+      background: rgba(0, 0, 0, 0.4);
+      color: rgba(243, 234, 211, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 9px 18px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .duel-tab.active {
+      background: linear-gradient(135deg, var(--claro-red), var(--claro-glow));
+      color: #fff;
+      border-color: var(--claro-glow);
+      box-shadow: 0 0 20px rgba(226, 0, 26, 0.5);
+    }
+
+    .timer-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 8px 16px;
+      border-radius: 10px;
+    }
+
+    .timer-number {
+      font-family: monospace;
+      font-size: 18px;
+      font-weight: bold;
+      color: var(--pumpkin-orange);
+      min-width: 32px;
+      text-align: center;
+    }
+
+    .btn-action {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--parchment);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-action:hover {
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+    }
+
+    .btn-action.btn-victory {
+      background: var(--claro-red);
+      border-color: var(--claro-glow);
+      color: #fff;
+      box-shadow: 0 0 15px rgba(226, 0, 26, 0.4);
+    }
+
+    .btn-action.btn-victory:hover {
+      background: var(--claro-glow);
+      transform: scale(1.05);
+    }
+
+    /* ÁREA DEL DUELO: 2 TARJETAS ENFRENTADAS */
+    .duel-stage {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 28px;
+      align-items: center;
+      perspective: 1200px;
+    }
+
+    @media (max-width: 900px) {
+      .duel-stage {
+        grid-template-columns: 1fr;
+      }
+      .vs-badge-container {
+        margin: 10px auto;
+      }
+    }
+
+    /* MEDALLÓN "VS" CENTRAL */
+    .vs-badge-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .vs-circle {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #ff7a29, #150a24 85%);
+      border: 2px solid var(--pumpkin-orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cinzel', serif;
+      font-size: 22px;
+      font-weight: 900;
+      color: #fff;
+      box-shadow: 0 0 30px rgba(255, 122, 41, 0.6);
+      animation: pulse-vs 2.5s infinite alternate;
+    }
+
+    @keyframes pulse-vs {
+      0% { transform: scale(0.95); box-shadow: 0 0 20px rgba(255, 122, 41, 0.4); }
+      100% { transform: scale(1.08); box-shadow: 0 0 40px rgba(226, 0, 26, 0.7); }
+    }
+
+    /* ==========================================================================
+       CLASE OFICIAL Y SOLICITADA POR EL USUARIO: .tarjeta-oferta (3D & WEB-PAGE STYLE)
+       ========================================================================== */
+    .duel-stage {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 32px;
+      align-items: center;
+      margin-bottom: 30px;
+      perspective: 1400px;
+    }
+
+    .tarjeta-oferta {
+      position: relative;
+      width: 100%;
+      max-width: 460px;
+      margin: 0 auto;
+      aspect-ratio: 3 / 4;
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      background-color: var(--bg-midnight);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7);
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+      transform-style: preserve-3d;
+    }
+
+    /* BARRA SUPERIOR ESTILO NAVEGADOR WEB */
+    .browser-bar {
+      background: linear-gradient(180deg, rgba(32, 18, 48, 0.95), rgba(20, 10, 32, 0.95));
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 10;
+      flex-shrink: 0;
+    }
+
+    .browser-dots {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .b-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .browser-address {
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+      padding: 2px 12px;
+      font-size: 11px;
+      font-family: monospace;
+      color: rgba(243, 234, 211, 0.75);
+      max-width: 240px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Efecto 3D al pasar el cursor (Hover) */
+    .tarjeta-oferta:hover {
+      transform: translateY(-16px) rotateX(4deg) rotateY(6deg) scale(1.025);
+      box-shadow: 0 32px 65px -10px rgba(0, 0, 0, 0.9);
+    }
+
+    /* SILUETA CALABAZA (Competidor 1 y 3) */
+    .tarjeta-calabaza {
+      border-color: rgba(255, 122, 41, 0.4);
+      background: radial-gradient(circle at 50% 10%, rgba(255, 122, 41, 0.08) 0%, rgba(21, 10, 36, 0.98) 75%);
+    }
+
+    .tarjeta-calabaza:hover {
+      transform: translateY(-16px) rotateX(4deg) rotateY(6deg) scale(1.025);
+      box-shadow: 0px 28px 55px rgba(255, 122, 41, 0.5), 0 0 30px rgba(255, 75, 43, 0.4);
+      border-color: var(--pumpkin-orange);
+    }
+
+    /* SILUETA ATAÚD (Competidor 2) */
+    .tarjeta-ataud {
+      border-color: rgba(92, 138, 107, 0.45);
+      background: radial-gradient(circle at 50% 15%, rgba(92, 138, 107, 0.1) 0%, rgba(21, 10, 36, 0.98) 75%);
+    }
+
+    .tarjeta-ataud:hover {
+      transform: translateY(-16px) rotateX(4deg) rotateY(-6deg) scale(1.025);
+      box-shadow: 0px 28px 55px rgba(92, 138, 107, 0.5), 0 0 30px rgba(60, 89, 67, 0.4);
+      border-color: var(--coffin-moss);
+    }
+
+    /* SILUETA FANTASMA CLARO (Propuesta Ganadora) */
+    .tarjeta-claro {
+      border-color: rgba(226, 0, 26, 0.55);
+      background: radial-gradient(circle at 50% 15%, rgba(226, 0, 26, 0.15) 0%, rgba(21, 10, 36, 0.98) 75%);
+    }
+
+    .tarjeta-claro:hover {
+      transform: translateY(-18px) rotateX(3deg) rotateY(-6deg) scale(1.03);
+      box-shadow: 0px 32px 65px rgba(226, 0, 26, 0.65), 0px 0px 40px rgba(255, 90, 106, 0.6);
+      border-color: var(--claro-glow);
+    }
+
+    /* MARCO DECORATIVO PERIMETRAL SVG EN CASO DE NO USAR PNG EXTERNO */
+    .card-svg-frame {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .card-body {
+      position: relative;
+      z-index: 5;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* ELEMENTOS TIPOGRÁFICOS DE LA TARJETA */
+    .card-tag {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 8px;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+
+    .tag-pumpkin { background: rgba(255, 122, 41, 0.25); color: var(--pumpkin-orange); border: 1px solid rgba(255, 122, 41, 0.45); }
+    .tag-coffin { background: rgba(92, 138, 107, 0.25); color: #8ec59f; border: 1px solid rgba(92, 138, 107, 0.5); }
+    .tag-claro { background: rgba(226, 0, 26, 0.28); color: #ffa0aa; border: 1px solid rgba(226, 0, 26, 0.55); }
+
+    .card-title {
+      font-size: 1.65rem;
+      font-weight: 900;
+      color: var(--parchment);
+      margin-bottom: 4px;
+      line-height: 1.2;
+    }
+
+    .card-plan {
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(243, 234, 211, 0.9);
+      background: rgba(0, 0, 0, 0.35);
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+
+    .price-container {
+      margin: 14px 0;
+      padding: 12px 18px;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+
+    .price-value {
+      font-size: 2.6rem;
+      font-weight: 900;
+      line-height: 1.1;
+    }
+
+    .price-pumpkin { color: var(--pumpkin-orange); text-shadow: 0 0 18px rgba(255, 122, 41, 0.7); }
+    .price-coffin { color: #8ec59f; text-shadow: 0 0 18px rgba(92, 138, 107, 0.7); }
+    .price-claro { color: #fff; text-shadow: 0 0 25px rgba(255, 90, 106, 0.9); }
+
+    .price-data {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--parchment);
+      margin-top: 4px;
+    }
+
+    .feature-list {
+      list-style: none;
+      text-align: left;
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(243, 234, 211, 0.95);
+      margin: 12px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.35;
+    }
+
+    .bullet-cross { color: #ff5a6a; font-weight: 900; font-size: 15px; }
+    .bullet-check { color: #4ade80; font-weight: 900; font-size: 15px; }
+
+    /* CAJA DE TRAMPA OCULTA O ARGUMENTARIO CLARO */
+    .pitch-box {
+      border-radius: 14px;
+      padding: 12px 16px;
+      font-size: 13px;
+      text-align: left;
+      line-height: 1.45;
+      backdrop-filter: blur(8px);
+    }
+
+    .pitch-trap {
+      background: rgba(153, 0, 18, 0.35);
+      border: 1px solid rgba(226, 0, 26, 0.55);
+      color: #ffd2d6;
+    }
+
+    .pitch-trap strong {
+      color: #ff9ca7;
+      display: block;
+      margin-bottom: 4px;
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .pitch-claro {
+      background: linear-gradient(135deg, rgba(226, 0, 26, 0.38), rgba(31, 16, 51, 0.9));
+      border: 1px solid rgba(226, 0, 26, 0.7);
+      color: #fff;
+      box-shadow: 0 0 25px rgba(226, 0, 26, 0.45);
+    }
+
+    .pitch-claro strong {
+      color: var(--claro-glow);
+      display: block;
+      margin-bottom: 4px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 800;
+    }
+
+    /* OVERLAY DE CELEBRACIÓN DE VICTORIA */
+    .victory-badge {
+      display: none;
+      position: absolute;
+      top: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--claro-red);
+      color: #fff;
+      padding: 6px 18px;
+      border-radius: 30px;
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      border: 1px solid #fff;
+      box-shadow: 0 0 25px rgba(226, 0, 26, 0.8);
+      z-index: 20;
+      animation: bounce 1s infinite alternate;
+    }
+
+    @keyframes bounce {
+      0% { transform: translateX(-50%) translateY(0); }
+      100% { transform: translateX(-50%) translateY(-6px); }
+    }
+
+    /* BOTÓN ANIMADO CON MOVIMIENTO: Contraoferta Fantasma */
+    @keyframes ghost-float {
+      0%, 100% {
+        transform: translateY(0px) scale(1);
+        box-shadow: 0 0 20px rgba(226, 0, 26, 0.5), 0 0 40px rgba(255, 90, 106, 0.3);
+      }
+      50% {
+        transform: translateY(-8px) scale(1.03);
+        box-shadow: 0 0 35px rgba(226, 0, 26, 0.8), 0 0 55px rgba(255, 90, 106, 0.6);
+      }
+    }
+
+    .btn-ghost-counter {
+      animation: ghost-float 3s ease-in-out infinite;
+      background: linear-gradient(135deg, #1f1033, #e2001a, #1f1033);
+      border: 2px solid rgba(255, 90, 106, 0.6);
+      color: #fff;
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      padding: 12px 28px;
+      border-radius: 16px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      margin: 15px auto;
+    }
+
+    .btn-ghost-counter:hover {
+      transform: scale(1.06) translateY(-4px);
+      box-shadow: 0 0 45px rgba(226, 0, 26, 0.9), 0 0 70px rgba(255, 90, 106, 0.7);
+    }
+
+    /* SELECTOR DE 5 SESIONES */
+    .sessions-bar {
+      display: flex;
+      gap: 8px;
+      background: rgba(31, 16, 51, 0.85);
+      padding: 10px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 20px;
+      overflow-x: auto;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .session-tab {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(243, 234, 211, 0.75);
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .session-tab.active {
+      background: linear-gradient(135deg, rgba(226, 0, 26, 0.4), rgba(255, 122, 41, 0.3));
+      border-color: var(--claro-glow);
+      color: #fff;
+      box-shadow: 0 0 15px rgba(226, 0, 26, 0.4);
+    }
+
+    /* INSTRUCCIONES INFERIORES */
+    .guidance-panel {
+      margin-top: 36px;
+      background: rgba(21, 10, 36, 0.8);
+      border: 1px solid rgba(255, 122, 41, 0.25);
+      border-radius: 16px;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      font-size: 12px;
+      color: rgba(243, 234, 211, 0.8);
+    }
+
+    .guidance-col h4 {
+      color: var(--pumpkin-orange);
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    /* ==========================================================================
+       SCOREBOARD PERSISTENTE EN LA PARTE SUPERIOR
+       ========================================================================== */
+    .scoreboard-box {
+      margin-top: 20px;
+      background: linear-gradient(180deg, rgba(31, 16, 51, 0.95), rgba(21, 10, 36, 0.95));
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 18px;
+      padding: 18px 22px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      backdrop-filter: blur(10px);
+    }
+
+    .sb-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+    }
+
+    .sb-title-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sb-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--parchment);
+      letter-spacing: 0.05em;
+    }
+
+    .sb-tag {
+      font-size: 10px;
+      text-transform: uppercase;
+      font-family: monospace;
+      background: rgba(74, 222, 128, 0.15);
+      color: #86efac;
+      padding: 2px 7px;
+      border-radius: 4px;
+      border: 1px solid rgba(74, 222, 128, 0.3);
+    }
+
+    .sb-stats {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .sb-stat-pill {
+      font-size: 11px;
+      background: rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 5px 10px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .sb-grid {
+      display: grid;
+      grid-template-columns: 1.2fr repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    @media (max-width: 850px) {
+      .sb-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .sb-card {
+      border-radius: 12px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .sb-card-claro {
+      background: linear-gradient(135deg, rgba(226, 0, 26, 0.25), rgba(31, 16, 51, 0.9));
+      border: 2px solid var(--claro-red);
+      box-shadow: 0 0 20px rgba(226, 0, 26, 0.35);
+    }
+
+    .sb-card-comp {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .sb-card-comp.active-rival {
+      border-color: var(--pumpkin-orange);
+      box-shadow: 0 0 15px rgba(255, 122, 41, 0.3);
+    }
+
+    .sb-num {
+      font-family: 'Cinzel', serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      line-height: 1;
+      margin: 6px 0;
+    }
+
+    .btn-score-add {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--parchment);
+      padding: 5px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      margin-top: 4px;
+    }
+
+    .btn-score-add:hover {
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .btn-score-claro {
+      background: var(--claro-red);
+      border-color: var(--claro-glow);
+      color: #fff;
+      box-shadow: 0 0 10px rgba(226, 0, 26, 0.4);
+    }
+
+    .btn-score-claro:hover {
+      background: var(--claro-glow);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ELEMENTO DE AUDIO DE FONDO DE HALLOWEEN -->
+  <audio id="bg-audio" src="./halloween-theme.mp3" loop preload="auto"></audio>
+  <!-- ELEMENTO DE AUDIO PARA CLIC DE TARJETA -->
+  <audio id="sound-click" preload="auto"></audio>
+
+  <!-- BARRA SUPERIOR -->
+  <header>
+    <div class="container header-content">
+      <div class="brand-group">
+        <div class="brand-emblem">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+          </svg>
+        </div>
+        <div>
+          <span class="badge-sub">Capacitación Comercial Claro</span>
+          <h1 class="main-title font-cinzel">DUELO DE OFERTAS DE HALLOWEEN</h1>
+        </div>
+      </div>
+
+      <!-- REPRODUCTOR DE AMBIENTE -->
+      <div class="audio-player-bar">
+        <button id="audio-toggle-btn" class="btn-audio" title="Reproducir / Pausar Música">▶</button>
+        <div class="music-waves" id="music-waves">
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+        </div>
+        <span class="music-info font-cinzel">Música Halloween</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- BARRA DE 5 SESIONES SIMULTÁNEAS INDEPENDIENTES CON ESTADO ACTIVO / CERRADO Y PWA -->
+    <div class="sessions-bar" style="margin-top: 15px;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span style="font-size: 16px;">👥</span>
+        <span style="font-size: 12px; font-weight: 800; color: #fff;">5 SESIONES INDEPENDIENTES:</span>
+      </div>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+        <button class="session-tab active" onclick="switchSession(0)" id="stab-0">Mesa 01 <span style="font-size: 9px; opacity: 0.8; margin-left: 4px;">(Activo)</span></button>
+        <button class="session-tab" onclick="switchSession(1)" id="stab-1">Mesa 02 <span style="font-size: 9px; opacity: 0.8; margin-left: 4px;">(Cerrado)</span></button>
+        <button class="session-tab" onclick="switchSession(2)" id="stab-2">Mesa 03 <span style="font-size: 9px; opacity: 0.8; margin-left: 4px;">(Cerrado)</span></button>
+        <button class="session-tab" onclick="switchSession(3)" id="stab-3">Mesa 04 <span style="font-size: 9px; opacity: 0.8; margin-left: 4px;">(Cerrado)</span></button>
+        <button class="session-tab" onclick="switchSession(4)" id="stab-4">Mesa 05 <span style="font-size: 9px; opacity: 0.8; margin-left: 4px;">(Cerrado)</span></button>
+        <button class="btn-action" onclick="toggleCurrentSessionStatus()" id="btn-toggle-status" style="background: rgba(16, 185, 129, 0.25); border-color: rgba(16, 185, 129, 0.5); color: #86efac; font-weight: 700; padding: 6px 12px;">
+          ● Estado: Activo (en uso)
+        </button>
+        <button class="btn-action" onclick="openCurrentSessionPwa()" style="background: linear-gradient(135deg, #ff7a29, #e2001a); border-color: rgba(255, 90, 106, 0.7); color: #fff; font-weight: 800; padding: 6px 14px; text-transform: uppercase; letter-spacing: 0.05em;">
+          📱 Abrir Sesión en PWA
+        </button>
+      </div>
+    </div>
+
+    <!-- PANEL DE CONTROL DEL DUELO -->
+    <div class="controls-deck">
+      <div class="duel-tabs">
+        <button class="duel-tab active font-cinzel" onclick="selectDuel(0)">Competidor Plan Brujo</button>
+        <button class="duel-tab font-cinzel" onclick="selectDuel(1)">Competidor Plan Sepulcro</button>
+        <button class="duel-tab font-cinzel" onclick="selectDuel(2)">Competidor Plan Sombras</button>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div class="timer-badge">
+          <span style="font-size: 11px; opacity: 0.8;">⏱ Pitch:</span>
+          <span class="timer-number" id="timer-display">45s</span>
+          <button class="btn-action" onclick="toggleTimer()" id="timer-btn">Iniciar</button>
+          <button class="btn-action" onclick="resetTimer()">↺</button>
+        </div>
+
+        <button class="btn-action btn-victory font-cinzel" onclick="triggerClaroVictory()">🏆 ¡Victoria Claro!</button>
+      </div>
+    </div>
+
+    <!-- BOTÓN ANIMADO CON MOVIMIENTO: CONTRAOFERTA FANTASMA -->
+    <div style="text-align: center; margin: 10px 0 20px 0;">
+      <button class="btn-ghost-counter" onclick="toggleGhostCard()">
+        <span>👻</span>
+        <span id="ghost-btn-text">Activar Contraoferta Fantasma</span>
+        <span>✨</span>
+      </button>
+    </div>
+
+    <!-- ESCENARIO PRINCIPAL DEL DUELO: 2 TARJETAS ENFRENTADAS -->
+    <div class="duel-stage">
+      
+      <!-- =========================================================================
+           TARJETA 1: COMPETIDOR (Calabaza o Ataúd)
+           ========================================================================= -->
+      <div class="tarjeta-oferta tarjeta-calabaza" id="card-competitor">
+        <!-- BARRA SUPERIOR DE VENTANA NAVEGADOR WEB -->
+        <div class="browser-bar">
+          <div class="browser-dots">
+            <span class="b-dot" style="background: #ff5f56;"></span>
+            <span class="b-dot" style="background: #ffbd2e;"></span>
+            <span class="b-dot" style="background: #27c93f;"></span>
+          </div>
+          <div class="browser-address">🔒 https://ofertas-competidor.com/plan-anzuelo</div>
+          <span style="font-size: 11px; opacity: 0.5;">↻</span>
+        </div>
+
+        <!-- MARCO DECORATIVO VECTORIAL -->
+        <svg class="card-svg-frame" viewBox="0 0 400 533" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="10" width="380" height="513" rx="20" stroke="var(--pumpkin-orange)" stroke-width="2" stroke-dasharray="12 6" opacity="0.45"/>
+          <path d="M 60,10 C 130,22 270,22 340,10" stroke="var(--pumpkin-orange)" stroke-width="4" stroke-linecap="round"/>
+          <path d="M 60,523 C 130,511 270,511 340,523" stroke="var(--pumpkin-orange)" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+
+        <div class="card-body" style="padding: 24px 20px;">
+          <div>
+            <span class="card-tag tag-pumpkin font-cinzel" id="comp-tag">Competidor 1: Plan Brujo (Calabaza A)</span>
+            <h2 class="card-title font-cinzel" id="comp-brand">Competidor Plan Brujo</h2>
+            <p class="card-plan" id="comp-plan">Triple $149.900/mes (Internet + TV Avanzada + Móvil)</p>
+          </div>
+
+          <div class="price-container">
+            <div class="price-value font-cinzel price-pumpkin" id="comp-price">$149.900</div>
+            <div class="price-data" id="comp-data">500 Megas Simétricas</div>
+          </div>
+
+          <ul class="feature-list" id="comp-features">
+            <li><span class="bullet-cross">✕</span> Canales: 125 HD / 27 SD con 2 Decodificadores</li>
+            <li><span class="bullet-cross">✕</span> Celular Ilimitado en paquete cerrado</li>
+            <li><span class="bullet-cross">✕</span> Paramount+ (solo incluido x 12 meses)</li>
+            <li><span class="bullet-cross">✕</span> HBO (solo incluido x 12 meses)</li>
+          </ul>
+
+          <div class="pitch-box pitch-trap">
+            <strong>⚠ La Trampa Oculta / Objeción:</strong>
+            <p id="comp-trap">Pagas $149.900 y los streamings Paramount+ y HBO vencen al mes 12. Menos variedad de canales totales y sin beneficios de asistencia médica/hogar.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- MEDALLÓN "VS" -->
+      <div class="vs-badge-container">
+        <div class="vs-circle">VS</div>
+        <span style="font-size: 11px; letter-spacing: 0.1em; color: var(--claro-glow); font-weight: 700;">CONTRAOFERTA</span>
+      </div>
+
+      <!-- =========================================================================
+           TARJETA 2: CLARO (Fantasma con Halo Rojo)
+           ========================================================================= -->
+      <div class="tarjeta-oferta tarjeta-claro" id="card-claro">
+        <!-- BARRA SUPERIOR DE VENTANA NAVEGADOR WEB CLARO -->
+        <div class="browser-bar" style="border-bottom-color: rgba(226, 0, 26, 0.35);">
+          <div class="browser-dots">
+            <span class="b-dot" style="background: #e2001a;"></span>
+            <span class="b-dot" style="background: #ffbd2e;"></span>
+            <span class="b-dot" style="background: #27c93f;"></span>
+          </div>
+          <div class="browser-address" style="color: #fff; border-color: rgba(226, 0, 26, 0.4);">🔒 https://claro.com.co/soluciones-hogar</div>
+          <span style="font-size: 11px; color: var(--claro-glow);">↗</span>
+        </div>
+
+        <div class="victory-badge" id="victory-banner">¡CIERRE DE VENTA EXITOSO!</div>
+
+        <!-- MARCO DECORATIVO VECTORIAL FANTASMA -->
+        <svg class="card-svg-frame" viewBox="0 0 400 533" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="10" width="380" height="513" rx="20" stroke="var(--claro-red)" stroke-width="2" opacity="0.6"/>
+          <path d="M 30,500 C 60,520 90,490 120,515 C 150,535 180,495 210,515 C 240,535 270,495 300,515 C 330,535 360,500 380,510" stroke="var(--claro-glow)" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+
+        <div class="card-body" style="padding: 24px 20px;">
+          <div>
+            <span class="card-tag tag-claro font-cinzel">Triple Superior ($18.000 Menos + 2 Apps Video)</span>
+            <h2 class="card-title font-cinzel" style="color: #fff; text-shadow: 0 0 15px rgba(255,90,106,0.6);">FANTASMA CLARO</h2>
+            <p class="card-plan">Triple Superior + Telefonía Fija</p>
+          </div>
+
+          <div class="price-container" style="border-color: rgba(226, 0, 26, 0.4);">
+            <div class="price-value font-cinzel price-claro" id="claro-price">$131.900</div>
+            <div class="price-data" style="color: var(--claro-glow);" id="claro-data">500 / 900 Megas (Ahorras $18.000)</div>
+          </div>
+
+          <ul class="feature-list" id="claro-features">
+            <li><span class="bullet-check">✓</span> 276 canales totales (173 canales, 103 SD, 64 HD + emisoras/música)</li>
+            <li><span class="bullet-check">✓</span> 1 Deco HD incluido + 1 Deco Digital incluido</li>
+            <li><span class="bullet-check">✓</span> Elige 2 apps de video: Netflix+WIN, Netflix+Max, WIN+Amazon, Disney</li>
+            <li><span class="bullet-check">✓</span> Universal+ con AtresPlayer + Claro video incluidos de base</li>
+            <li><span class="bullet-check">✓</span> 1 Asistencia a elegir (Médica/Hogar/Pets) + McAfee 3 equipos + Claro Drive</li>
+          </ul>
+
+          <div class="pitch-box pitch-claro">
+            <strong>🎯 Argumentario de Cierre Asesor:</strong>
+            <p id="claro-pitch">"Por $131.900 en vez de $149.900 (te ahorras $18.000 cada mes), en Claro te llevas hasta 900 Megas, 276 canales totales frente a 152 del rival, eliges 2 apps de video premium a tu gusto (Netflix, WIN, Max o Amazon) y disfrutas Universal+ permanente con asistencia para tu hogar o mascota."</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- GUÍA METODOLÓGICA DE CAPACITACIÓN -->
+    <div class="guidance-panel">
+      <div class="guidance-col">
+        <h4 class="font-cinzel">1. Escucha Activa</h4>
+        <p>Identifica la oferta que el cliente menciona. Coloca el cursor sobre la tarjeta del competidor para analizar su debilidad estructural.</p>
+      </div>
+      <div class="guidance-col">
+        <h4 class="font-cinzel">2. Derribar la Trampa</h4>
+        <p>Inicia el temporizador de 45 segundos. El asesor comercial debe evidenciar la trampa oculta (días de vigencia, permanencia o antenas prestadas).</p>
+      </div>
+      <div class="guidance-col">
+        <h4 class="font-cinzel">3. Golpe Maestro Claro</h4>
+        <p>Pasa el cursor sobre la tarjeta Fantasma Claro para activar su halo rojo y remata con el beneficio diferencial de valor (5G, Roaming, Fibra Simétrica).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT INTERACTIVO DEL PROTOTIPO -->
+  <script>
+    // DATOS DE LOS 3 DUELOS ALIMENTADOS DIRECTAMENTE DEL ARCHIVO DE COMPETIDORES
+    const duelos = [
+      {
+        compType: 'calabaza',
+        compTag: 'Competidor 1: Plan Brujo (Calabaza A)',
+        compBrand: 'Competidor Plan Brujo',
+        compPlan: 'Triple $149.900/mes (Internet + TV Avanzada + Celular)',
+        compPrice: '$149.900',
+        compData: '500 Megas Simétricas',
+        compFeatures: [
+          'Canales: 125 HD / 27 SD con 2 Decodificadores',
+          'Celular Ilimitado en paquete cerrado',
+          'Paramount+ (Incluido en tu plan x 12 meses)',
+          'HBO (Incluido en tu plan x 12 meses)'
+        ],
+        compTrap: 'Pagas $149.900 y los streamings Paramount+ y HBO vencen al mes 12. Menos variedad de canales totales y sin beneficios de asistencia médica/hogar.',
+        claroPrice: '$131.900',
+        claroData: '500 / 900 Megas (Ahorras $18.000/mes)',
+        claroFeatures: [
+          '276 canales totales (173 canales, 103 SD, 64 HD + emisoras/música)',
+          '1 Deco HD + 1 Deco Digital incluido',
+          'Elige 2 apps de video: Netflix+WIN, Netflix+Max, WIN+Amazon, Disney',
+          'Universal+ con AtresPlayer + Claro video incluidos de base',
+          '1 Asistencia a elegir: Médica / Hogar / Pets + McAfee 3 equipos + Claro Drive'
+        ],
+        claroPitch: '"Por $131.900 en vez de $149.900 (te ahorras $18.000 cada mes), en Claro te llevas hasta 900 Megas, 276 canales totales frente a 152 del rival, eliges 2 apps de video premium a tu gusto (Netflix, WIN, Max o Amazon) y disfrutas Universal+ permanente con asistencia para tu hogar o mascota."'
+      },
+      {
+        compType: 'ataud',
+        compTag: 'Competidor 2: Plan Sepulcro (Ataúd Verde)',
+        compBrand: 'Competidor Plan Sepulcro',
+        compPlan: 'Dúo Internet + TV Digital Avanzado $109.200',
+        compPrice: '$109.200',
+        compData: '500 Megas Simétricas',
+        compFeatures: [
+          'Internet 500 Megas Simétricas fijas',
+          'Televisión Digital Avanzado: 125 HD – 27 SD',
+          'Sin apps de video o streaming incluidas en la tarifa',
+          'Sin asistencias médicas, de hogar ni beneficios de mascotas'
+        ],
+        compTrap: 'Tarifa de $109.200 sin ninguna app de streaming incluida. Si el cliente contrata Netflix o Max por fuera, el costo mensual superará los $140.000.',
+        claroPrice: '$104.900',
+        claroData: '500 / 900 Megas Simétricas Reales',
+        claroFeatures: [
+          'Tarifa más baja: $104.900 frente a $109.200 del rival',
+          'Canales 72 HD + emisoras y música con 1 Deco HD incluido',
+          'Elige 1 app de video incluida: Netflix, WIN Sports, HBO Max, Amazon Prime o Disney',
+          'Universal+ con AtresPlayer + Claro video incluidos',
+          '1 Asistencia a elegir: Médica / Hogar / Pets + Claro Drive + Claro Club'
+        ],
+        claroPitch: '"Por $104.900 (más barato que los $109.200 del rival), en Claro tienes hasta 900 Megas, Deco HD, una app de streaming top a tu elección (Netflix, WIN, Max, Amazon o Disney), Universal+ permanente y una asistencia médica o de hogar de cortesía."'
+      },
+      {
+        compType: 'calabaza',
+        compTag: 'Competidor 3: Plan Sombras (Calabaza B)',
+        compBrand: 'Competidor Plan Sombras',
+        compPlan: 'Sencillo Solo Internet $84.900',
+        compPrice: '$84.900',
+        compData: '500 Megas Simétricas',
+        compFeatures: [
+          'Solo conexión de Internet fija 500 Megas',
+          'Cero plataformas de streaming o entretenimiento',
+          'Sin almacenamiento en la nube ni club de fidelización',
+          'Sin soporte de ciberseguridad ni asistencias familiares'
+        ],
+        compTrap: 'Internet aislado sin entretenimiento: pagar $84.900 por megas solas obliga al cliente a gastar $30.000 o más en suscripciones separadas de series o partidos.',
+        claroPrice: '$89.900',
+        claroData: '500 / 900 Megas Simétricas',
+        claroFeatures: [
+          'Elige 1 app de video: Netflix, WIN, HBO Max, Amazon Prime o Disney',
+          'Universal+ con AtresPlayer + Claro video incluidos de base',
+          'Claro Drive para fotos y archivos en la nube',
+          'Claro Club con 2x1 en salas de cine y restaurantes',
+          'Respaldo de la red de fibra y conectividad líder del país'
+        ],
+        claroPitch: '"Por solo $5.000 de diferencia frente a los $84.900 del rival, en Claro el cliente recibe hasta 900 Megas y se lleva de regalo una app de streaming top (Netflix, WIN, Max, Amazon o Disney) más Universal+ y Claro video, ahorrando más de $35.000 al mes."'
+      }
+    ];
+
+    let currentDuelIndex = 0;
+    let activeSessionIndex = 0;
+
+    // 5 Sesiones independientes en el HTML con estado Activo / Cerrado
+    const sessions = [
+      { duelIdx: 0, ghostActive: false, timeLeft: 45, timerRunning: false, status: 'active' },
+      { duelIdx: 1, ghostActive: false, timeLeft: 45, timerRunning: false, status: 'closed' },
+      { duelIdx: 2, ghostActive: false, timeLeft: 45, timerRunning: false, status: 'closed' },
+      { duelIdx: 0, ghostActive: false, timeLeft: 45, timerRunning: false, status: 'closed' },
+      { duelIdx: 1, ghostActive: false, timeLeft: 45, timerRunning: false, status: 'closed' }
+    ];
+
+    function toggleCurrentSessionStatus() {
+      const sess = sessions[activeSessionIndex];
+      sess.status = sess.status === 'active' ? 'closed' : 'active';
+      updateStatusBadge();
+    }
+
+    function updateStatusBadge() {
+      const sess = sessions[activeSessionIndex];
+      const btn = document.getElementById('btn-toggle-status');
+      const tab = document.getElementById('stab-' + activeSessionIndex);
+      if (sess.status === 'active') {
+        btn.innerHTML = '● Estado: Activo (en uso)';
+        btn.style.background = 'rgba(16, 185, 129, 0.25)';
+        btn.style.borderColor = 'rgba(16, 185, 129, 0.5)';
+        btn.style.color = '#86efac';
+        if (tab) tab.innerHTML = `Mesa 0${activeSessionIndex + 1} <span style="font-size: 9px; opacity: 0.8; margin-left: 4px;">(Activo)</span>`;
+      } else {
+        btn.innerHTML = '○ Estado: Cerrado (disponible)';
+        btn.style.background = 'rgba(245, 158, 11, 0.25)';
+        btn.style.borderColor = 'rgba(245, 158, 11, 0.5)';
+        btn.style.color = '#fcd34d';
+        if (tab) tab.innerHTML = `Mesa 0${activeSessionIndex + 1} <span style="font-size: 9px; opacity: 0.8; margin-left: 4px;">(Cerrado)</span>`;
+      }
+    }
+
+    function openCurrentSessionPwa() {
+      const sessIdx = activeSessionIndex;
+      sessions[sessIdx].status = 'active';
+      updateStatusBadge();
+      const pwaUrl = `/?session=${sessIdx + 1}&pwa=standalone`;
+      window.open(pwaUrl, `PWA_Claro_Sesion_${sessIdx + 1}`, 'menubar=no,location=yes,resizable=yes,scrollbars=yes,status=no,width=1280,height=900');
+    }
+
+    function switchSession(sessIdx) {
+      activeSessionIndex = sessIdx;
+      const sess = sessions[sessIdx];
+
+      // Actualizar pestañas de sesión
+      document.querySelectorAll('.session-tab').forEach((tab, i) => {
+        if (i === sessIdx) tab.classList.add('active');
+        else tab.classList.remove('active');
+      });
+
+      // Seleccionar duelo correspondiente de esa sesión
+      selectDuel(sess.duelIdx);
+
+      // Sincronizar estado de la tarjeta fantasma y badge de estado
+      updateGhostVisibility(sess.ghostActive);
+      updateStatusBadge();
+    }
+
+    function toggleGhostCard() {
+      const sess = sessions[activeSessionIndex];
+      sess.ghostActive = !sess.ghostActive;
+      updateGhostVisibility(sess.ghostActive);
+    }
+
+    function updateGhostVisibility(isActive) {
+      const claroCard = document.getElementById('card-claro');
+      const ghostText = document.getElementById('ghost-btn-text');
+      if (isActive) {
+        claroCard.style.opacity = '1';
+        claroCard.style.filter = 'none';
+        claroCard.style.pointerEvents = 'auto';
+        ghostText.textContent = 'Contraoferta Fantasma Activada';
+      } else {
+        claroCard.style.opacity = '0.35';
+        claroCard.style.filter = 'grayscale(80%) blur(1px)';
+        ghostText.textContent = 'Activar Contraoferta Fantasma';
+      }
+    }
+
+    function selectDuel(index) {
+      currentDuelIndex = index;
+      sessions[activeSessionIndex].duelIdx = index;
+      const data = duelos[index];
+
+      // Actualizar pestañas activas
+      const tabs = document.querySelectorAll('.duel-tab');
+      tabs.forEach((tab, i) => {
+        if (i === index) tab.classList.add('active');
+        else tab.classList.remove('active');
+      });
+
+      // Actualizar tarjeta del competidor
+      const compCard = document.getElementById('card-competitor');
+      if (data.compType === 'ataud') {
+        compCard.className = 'tarjeta-oferta tarjeta-ataud';
+      } else {
+        compCard.className = 'tarjeta-oferta tarjeta-calabaza';
+      }
+
+      document.getElementById('comp-tag').textContent = data.compTag;
+      document.getElementById('comp-brand').textContent = data.compBrand;
+      document.getElementById('comp-plan').textContent = data.compPlan;
+      document.getElementById('comp-price').textContent = data.compPrice;
+      document.getElementById('comp-data').textContent = data.compData;
+      document.getElementById('comp-trap').textContent = data.compTrap;
+
+      const compList = document.getElementById('comp-features');
+      compList.innerHTML = data.compFeatures.map(f => `<li><span class="bullet-cross">✕</span> ${f}</li>`).join('');
+
+      // Actualizar tarjeta Claro
+      document.getElementById('claro-price').textContent = data.claroPrice;
+      document.getElementById('claro-data').textContent = data.claroData;
+      document.getElementById('claro-pitch').textContent = data.claroPitch;
+
+      const claroList = document.getElementById('claro-features');
+      claroList.innerHTML = data.claroFeatures.map(f => `<li><span class="bullet-check">✓</span> ${f}</li>`).join('');
+
+      resetTimer();
+      document.getElementById('victory-banner').style.display = 'none';
+    }
+
+    // CONTROL DEL AUDIO DE FONDO
+    const audio = document.getElementById('bg-audio');
+    const audioBtn = document.getElementById('audio-toggle-btn');
+    const musicWaves = document.getElementById('music-waves');
+    let isPlaying = false;
+
+    audioBtn.addEventListener('click', () => {
+      if (isPlaying) {
+        audio.pause();
+        audioBtn.textContent = '▶';
+        musicWaves.style.opacity = '0.3';
+        isPlaying = false;
+      } else {
+        audio.play().then(() => {
+          audioBtn.textContent = '⏸';
+          musicWaves.style.opacity = '1';
+          isPlaying = true;
+        }).catch(err => {
+          console.log('Audio autoplay prevented or file loading:', err);
+        });
+      }
+    });
+
+    // TEMPORIZADOR DE PITCH (45 SEG)
+    let timeLeft = 45;
+    let timerInterval = null;
+
+    function toggleTimer() {
+      const btn = document.getElementById('timer-btn');
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+        btn.textContent = 'Reanudar';
+      } else {
+        if (!isPlaying) {
+          audio.play().then(() => {
+            audioBtn.textContent = '⏸';
+            musicWaves.style.opacity = '1';
+            isPlaying = true;
+          }).catch(() => {});
+        }
+        btn.textContent = 'Pausar';
+        timerInterval = setInterval(() => {
+          if (timeLeft > 0) {
+            timeLeft--;
+            document.getElementById('timer-display').textContent = timeLeft + 's';
+          } else {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            btn.textContent = 'Fin';
+          }
+        }, 1000);
+      }
+    }
+
+    function resetTimer() {
+      clearInterval(timerInterval);
+      timerInterval = null;
+      timeLeft = 45;
+      document.getElementById('timer-display').textContent = '45s';
+      document.getElementById('timer-btn').textContent = 'Iniciar';
+    }
+
+    // CELEBRACIÓN DE VICTORIA CLARO
+    function triggerClaroVictory() {
+      const banner = document.getElementById('victory-banner');
+      banner.style.display = 'block';
+      const cardClaro = document.getElementById('card-claro');
+      cardClaro.style.transform = 'translateY(-20px) rotateY(-5deg) scale(1.04)';
+      cardClaro.style.boxShadow = '0px 30px 60px rgba(226, 0, 26, 0.9)';
+
+      // Incrementar contador si no viene del botón específico
+      if (typeof scores !== 'undefined') {
+        scores.claro = (scores.claro || 0) + 1;
+        scores.currentStreak = (scores.currentStreak || 0) + 1;
+        saveHtmlScores();
+        renderHtmlScores();
+      }
+
+      setTimeout(() => {
+        banner.style.display = 'none';
+        cardClaro.style.transform = '';
+        cardClaro.style.boxShadow = '';
+      }, 4500);
+    }
+
+    // ==========================================================================
+    // PERSISTENCIA DEL MARCADOR EN LOCALSTORAGE
+    // ==========================================================================
+    const SCORE_KEY = 'halloween_duel_scoreboard_v1';
+    let scores = {
+      claro: 5,
+      competitors: { 'calabaza-a': 1, 'ataud': 2, 'calabaza-b': 1 },
+      currentStreak: 3
+    };
+
+    function loadHtmlScores() {
+      try {
+        const raw = localStorage.getItem(SCORE_KEY);
+        if (raw) {
+          scores = JSON.parse(raw);
+          if (!scores.competitors) {
+            scores.competitors = { 'calabaza-a': 0, 'ataud': 0, 'calabaza-b': 0 };
+          }
+        }
+      } catch (e) {
+        console.warn('LocalStorage error', e);
+      }
+      renderHtmlScores();
+    }
+
+    function saveHtmlScores() {
+      try {
+        localStorage.setItem(SCORE_KEY, JSON.stringify(scores));
+      } catch (e) {
+        console.warn('LocalStorage save error', e);
+      }
+    }
+
+    function renderHtmlScores() {
+      document.getElementById('score-claro').textContent = scores.claro || 0;
+      document.getElementById('score-comp-0').textContent = scores.competitors?.['calabaza-a'] || 0;
+      document.getElementById('score-comp-1').textContent = scores.competitors?.['ataud'] || 0;
+      document.getElementById('score-comp-2').textContent = scores.competitors?.['calabaza-b'] || 0;
+
+      const totalComp = (scores.competitors?.['calabaza-a'] || 0) + (scores.competitors?.['ataud'] || 0) + (scores.competitors?.['calabaza-b'] || 0);
+      const total = (scores.claro || 0) + totalComp;
+      const winrate = total > 0 ? Math.round(((scores.claro || 0) / total) * 100) : 0;
+
+      document.getElementById('sb-winrate').textContent = winrate + '%';
+      document.getElementById('sb-streak').textContent = (scores.currentStreak || 0) + ' 🔥';
+      document.getElementById('sb-total').textContent = total;
+    }
+
+    function addHtmlClaroScore() {
+      triggerClaroVictory();
+    }
+
+    function addHtmlCompScore(index) {
+      const keys = ['calabaza-a', 'ataud', 'calabaza-b'];
+      const key = keys[index];
+      if (!scores.competitors) scores.competitors = { 'calabaza-a': 0, 'ataud': 0, 'calabaza-b': 0 };
+      scores.competitors[key] = (scores.competitors[key] || 0) + 1;
+      scores.currentStreak = 0;
+      saveHtmlScores();
+      renderHtmlScores();
+    }
+
+    function resetHtmlScores() {
+      if (confirm('¿Deseas reiniciar todo el marcador a 0?')) {
+        scores = {
+          claro: 0,
+          competitors: { 'calabaza-a': 0, 'ataud': 0, 'calabaza-b': 0 },
+          currentStreak: 0
+        };
+        saveHtmlScores();
+        renderHtmlScores();
+      }
+    }
+
+    function resetHtmlCompetitorsScores() {
+      scores.competitors = { 'calabaza-a': 0, 'ataud': 0, 'calabaza-b': 0 };
+      saveHtmlScores();
+      renderHtmlScores();
+    }
+
+    // Inicializar audio de clic sintético para #sound-click si no hay archivo externo
+    function initClickAudio() {
+      try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const clickSound = document.getElementById('sound-click');
+        if (clickSound && !clickSound.src) {
+          // Genera un audio WAV mono ultraligero de 40ms
+          const sampleRate = 22050;
+          const numSamples = Math.floor(sampleRate * 0.05);
+          const buffer = audioCtx.createBuffer(1, numSamples, sampleRate);
+          const data = buffer.getChannelData(0);
+          for (let i = 0; i < numSamples; i++) {
+            data[i] = Math.sin(2 * Math.PI * 600 * (i / sampleRate)) * Math.exp(-i / (sampleRate * 0.012));
+          }
+          // Usar Web Audio directamente como fallback de play()
+          clickSound.play = function() {
+            try {
+              const src = audioCtx.createBufferSource();
+              src.buffer = buffer;
+              src.connect(audioCtx.destination);
+              src.start();
+            } catch(e) {}
+            return Promise.resolve();
+          };
+        }
+      } catch(e) {}
+    }
+
+    // Sonido al hacer clic en las tarjetas de oferta
+    document.querySelectorAll('.tarjeta-oferta').forEach(tarjeta => {
+      tarjeta.addEventListener('click', () => {
+        const clickSound = document.getElementById('sound-click');
+        if (clickSound) {
+          clickSound.currentTime = 0;
+          clickSound.play();
+        }
+      });
+    });
+
+    // Inicializar al cargar
+    document.addEventListener('DOMContentLoaded', () => {
+      initClickAudio();
+      loadHtmlScores();
+    });
+    // Llamada directa de respaldo
+    initClickAudio();
+    loadHtmlScores();
+  </script>
+</body>
+</html>
